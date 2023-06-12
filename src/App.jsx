@@ -3,16 +3,9 @@ import { useLocalStorage } from "./useLocalStorage";
 function App() {
   const [firstName, setFirstName] = useLocalStorage("FIRST_NAME", "");
 
-  // Bonus:
-  // const [lastName, setLastName] = useLocalStorage("LAST_NAME", () => {
-  //   return "Default"
-  // })
-
-  // Bonus:
-  // const [hobbies, setHobbies] = useLocalStorage("HOBBIES", [
-  //   "Programming",
-  //   "Weight Lifting",
-  // ])
+  const [lastName, setLastName] = useLocalStorage("LAST_NAME", () => {
+    return "Default";
+  });
 
   return (
     <>
@@ -32,8 +25,7 @@ function App() {
         />
       </div>
 
-      {/* Bonus: */}
-      {/* <div
+      <div
         style={{
           display: "flex",
           flexDirection: "column",
@@ -45,19 +37,9 @@ function App() {
         <input
           type="text"
           value={lastName}
-          onChange={e => setLastName(e.target.value)}
+          onChange={(e) => setLastName(e.target.value)}
         />
-      </div> */}
-
-      {/* Bonus: */}
-      {/* <div>{hobbies.join(", ")}</div>
-      <button
-        onClick={() =>
-          setHobbies(currentHobbies => [...currentHobbies, "New Hobby"])
-        }
-      >
-        Add Hobby
-      </button> */}
+      </div>
     </>
   );
 }
